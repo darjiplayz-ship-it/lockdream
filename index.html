@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>STILL — Daily Habit Tracker</title>
+<meta name="theme-color" content="#A8B8A0">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<div class="shell">
+<nav class="nav" aria-label="Main">
+<span class="brand">STILL</span>
+<button data-tab="today" class="on">Today</button>
+<button data-tab="progress">Progress</button>
+</nav>
+<main>
+<section id="today" class="screen">
+<header><h1>STILL</h1><p class="sub">Stay consistent.</p><p id="date" class="date"></p></header>
+<div class="card">
+<p class="label">Today's progress</p>
+<p class="big"><span id="tcount"></span><span id="tpct" class="pct"></span></p>
+<div class="bar"><i id="tbar"></i></div>
+<p id="tmsg" class="msg"></p>
+</div>
+<button id="add" class="primary">+ Add Habit</button>
+<div id="list"></div>
+</section>
+<section id="progress" class="screen" hidden>
+<header><h1>Progress</h1></header>
+<div class="card"><p class="label">Today</p><div id="ptoday" class="stats"></div></div>
+<h2>Last 7 days</h2>
+<div id="week"></div>
+<h2>Completed vs. missed</h2>
+<div class="seg" role="group" aria-label="Period">
+<button data-f="today">Today</button><button data-f="week" class="on">Last 7 days</button><button data-f="all">All recorded days</button>
+</div>
+<div id="sum" class="card stats"></div>
+<h2>Backup</h2>
+<p class="note">Your data lives only in this browser on this device. It does not sync, and clearing browser data erases it. Export a backup now and then.</p>
+<div class="row2">
+<button id="exp" class="ghost">Export data</button>
+<button id="imp" class="ghost">Import data</button>
+<input id="file" type="file" accept="application/json,.json" hidden>
+</div>
+<button id="install" class="primary" hidden>Install app</button>
+<p id="hint" class="note" hidden>To install on Android: open this page in Chrome, tap the ⋮ menu, then choose Install app (or Add to Home screen).</p>
+</section>
+</main>
+</div>
+<dialog id="dlg" aria-labelledby="dtitle">
+<form id="f" novalidate>
+<h2 id="dtitle">Add habit</h2>
+<label for="nm">Habit name</label>
+<input id="nm" maxlength="80" autocomplete="off" required placeholder="Practice video editing">
+<label for="tm">Time (optional)</label>
+<input id="tm" type="time">
+<p id="err" class="err" role="alert"></p>
+<div class="row2"><button type="submit" class="primary" id="save">Save Habit</button><button type="button" class="ghost" id="cancel">Cancel</button></div>
+<button type="button" class="del" id="del" hidden>Delete habit</button>
+</form>
+</dialog>
+<script src="app.js"></script>
+</body></html>
